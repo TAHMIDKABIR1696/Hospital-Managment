@@ -22,3 +22,7 @@ Route::middleware([
 // admin--->doctor panale
 Route::get('/add_doctor_view', [AdminController::class, 'addview']);
 Route::post('/upload_doctor', [AdminController::class, 'upload']);
+
+// appointment
+// Show appointment form (GET)
+Route::post('/appointment', [HomeController::class, 'appointment']);

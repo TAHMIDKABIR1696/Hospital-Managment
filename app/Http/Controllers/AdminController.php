@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\doctor;
 
+
 class AdminController extends Controller
 {
     public function addview()
@@ -26,4 +27,5 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message', 'Doctor Added Successfully');
     }
+
 }
