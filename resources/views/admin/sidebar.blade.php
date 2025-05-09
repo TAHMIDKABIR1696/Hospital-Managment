@@ -1,45 +1,53 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
+<nav class="sidebar sidebar-offcanvas bg-dark" id="sidebar">
+  <ul class="nav flex-column pt-4 px-2">
 
-        <ul class="nav">
-          <li class="nav-item profile">
-            <div class="profile-desc">
-              <div class="profile-pic">
-                
-                <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">MD TAHMID KABIR</h5>
-                  <span>ADMIN</span>
-                </div>
-              </div>
-          </li>
-          <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
-          </li>
-          
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('add_doctor_view')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">DOCTORS</span>
-            </a>
+    <!-- Logout Button -->
+    <li class="nav-item mb-4">
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn btn-danger w-100 d-flex align-items-center justify-content-center">
+          <i class="mdi mdi-logout me-2"></i>
+          Logout
+        </button>
+      </form>
+    </li>
 
+    <!-- Admin Profile -->
+    <li class="nav-item text-center text-white mb-4">
+      <div class="profile-name">
+        <h6 class="mb-0 fw-bold">MD TAHMID KABIR</h6>
+        <small class="text-white-50">ADMIN</small>
+      </div>
+    </li>
 
-            <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('add_appointment_view')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">APPOINTMENT</span>
-            </a>
+    <!-- Navigation Header -->
+    <li class="nav-item nav-category mb-2 ps-3 text-white-50">
+      Navigation
+    </li>
 
-            <li class="nav-item menu-items">
-            <a class="nav-link" href=>
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">PATIENT</span>
-            </a>
+    <!-- Doctors Link -->
+    <li class="nav-item">
+      <a class="nav-link text-white d-flex align-items-center" href="{{url('add_doctor_view')}}">
+        <i class="mdi mdi-account-plus text-primary me-2"></i>
+        Doctors
+      </a>
+    </li>
 
-          </li>
-        </ul>
-      </nav>
+    <!-- Appointment Link -->
+    <li class="nav-item">
+      <a class="nav-link text-white d-flex align-items-center" href="{{url('viewappointment')}}">
+        <i class="mdi mdi-calendar-clock text-warning me-2"></i>
+        Appointment
+      </a>
+    </li>
+
+    <!-- Patient Link -->
+    <li class="nav-item">
+      <a class="nav-link text-white d-flex align-items-center" href="#">
+        <i class="mdi mdi-account-heart text-success me-2"></i>
+        Patient
+      </a>
+    </li>
+
+  </ul>
+</nav>

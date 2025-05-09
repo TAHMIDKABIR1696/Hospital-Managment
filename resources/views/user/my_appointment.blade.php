@@ -27,7 +27,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="#"><span class="text-primary">QUACK</span>-HOSPITAL</a>
+        <a class="navbar-brand" href="#"><span class="text-primary">MY</span> Appointment</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
             @if(Route::has('login'))
             @auth
             <li class="nav-item">
-              <a class="btn btn-primary ml-lg-3" href="{{url('myappointment')}}">Appointment</a>
+              <a class="btn btn-primary ml-lg-3" href="{{url('home')}}">Home</a>
             </li>
             <x-app-layout>
             </x-app-layout>
@@ -56,30 +56,49 @@
             </li>
             @endauth
             @endif
-          </ul>
+            </ul>
         </div> <!-- .navbar-collapse -->
       </div> <!-- .container -->
     </nav>
   </header>
 
-        @if (session('message'))
-        <div class="alert alert-success" role="alert">
-            <button type="button" class='close' data-dismiss='alert'>x</button>
-            {{ session()->get('message') }}
-        </div>
-        @endif
 
-<div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/BG.jpg); background-size: cover; background-position: center;">
-  <div class="hero-section">
-    <div class="container text-center wow zoomIn">
-      <h1 class="display-4">QUACK-QUACK Living🦆🩺💉</h1>
-    </div>
+  <div class="container my-5">
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover bg-white shadow rounded">
+      <thead class="thead-dark">
+        <tr>
+            
+          <th>Patient Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Doctor</th>
+          <th>Date</th>
+          <th>Status</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($appointments as $appointment)
+        <tr>
+          <td>{{ $appointment->name }}</td>
+          <td>{{ $appointment->phone }}</td>
+          <td>{{ $appointment->email }}</td>
+          <td>{{ $appointment->doctor }}</td>
+          <td>{{ $appointment->appointment_date}}</td>
+
+          <td>
+            <span class="badge badge-{{ $appointment->status == 'Approved' ? 'success' : ($appointment->status == 'Pending' ? 'warning' : 'secondary') }}">
+              {{ $appointment->status }}
+            </span>
+          </td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
   </div>
 </div>
 
-  @include('user.doctor')
-
-  @include('user.appointment')
 
 <script src="../assets/js/jquery-3.5.1.min.js"></script>
 

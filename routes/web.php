@@ -26,3 +26,8 @@ Route::post('/upload_doctor', [AdminController::class, 'upload']);
 // appointment
 // Show appointment form (GET)
 Route::post('/appointment', [HomeController::class, 'appointment']);
+Route::get('/myappointment', [HomeController::class, 'myappointment']);
+
+Route::get('/viewappointment', [AdminController::class, 'viewappointment']);
+Route::get('/canceled/{id}', [AdminController::class, 'canceled']);
+Route::get('/approved/{id}', [AdminController::class, 'approved']);

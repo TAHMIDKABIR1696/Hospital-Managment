@@ -62,6 +62,19 @@ class HomeController extends Controller
         return redirect()->back()->with('message', 'Appointment Request Successful');
     }
 
+    public function myappointment()
+    {
+        if (Auth::id())
+        {
+            $userid = Auth::user()->id;
+            $appointments = appointment::where('patient_id', $userid)->get();
+            return view('user.my_appointment', compact('appointments'));
+        }
+        else
+        {
+            return redirect('login');
+        }
+    }
     
 
 }
