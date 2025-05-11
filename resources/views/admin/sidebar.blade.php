@@ -25,7 +25,7 @@
       Navigation
     </li>
 
-    <!-- Doctors Link -->
+
     <li class="nav-item">
       <a class="nav-link text-white d-flex align-items-center" href="{{url('add_doctor_view')}}">
         <i class="mdi mdi-account-plus text-primary me-2"></i>
@@ -33,7 +33,7 @@
       </a>
     </li>
 
-    <!-- Appointment Link -->
+
     <li class="nav-item">
       <a class="nav-link text-white d-flex align-items-center" href="{{url('viewappointment')}}">
         <i class="mdi mdi-calendar-clock text-warning me-2"></i>
@@ -41,11 +41,18 @@
       </a>
     </li>
 
-    <!-- Patient Link -->
+
     <li class="nav-item">
-      <a class="nav-link text-white d-flex align-items-center" href="#">
+      <a class="nav-link text-white d-flex align-items-center" href="{{url('showdoctor')}}">
         <i class="mdi mdi-account-heart text-success me-2"></i>
-        Patient
+        All Doctors
+      </a>
+    </li>
+  
+    <li class="nav-item">
+      <a class="nav-link text-white d-flex align-items-center" href="{{url('showusers')}}">
+        <i class="mdi mdi-account-heart text-success me-2"></i>
+        All Users
       </a>
     </li>
 

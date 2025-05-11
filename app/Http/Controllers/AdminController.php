@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\doctor;
 use App\Models\Appointment;
+use App\Models\User;
 
 
 
@@ -53,5 +54,29 @@ class AdminController extends Controller
         return redirect()->back();
     }
     
+    public function showdoctor()
+    {
+        $data = doctor::all();
+        return view('admin.showdoctor', compact('data'));
+    }
 
+    public function deletedoctor($id)
+    {
+        $data = doctor::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
+    public function showusers()
+    {
+        $data = User::all();
+        return view('admin.showusers', compact('data'));
+    }
+
+    public function deleteuser($id)
+    {
+        $data = User::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
 }
