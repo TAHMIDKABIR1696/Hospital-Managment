@@ -29,6 +29,8 @@
         <tr>
           <th>Name</th>
           <th>Email</th>
+          <th>Phone</th>
+          <th>Address</th>
           <th>created_at</th>
           <th>updated_at</th>
         </tr>
@@ -38,6 +40,8 @@
         <tr>
           <td>{{ $User->name }}</td>
           <td>{{ $User->email }}</td>
+          <td>{{ $User->phone}}</td>
+          <td>{{ $User->address }}</td>
           <td>{{ $User->created_at }}</td>
           <td>{{ $User->updated_at }}</td>
           <td><a class='btn btn-danger' href="{{url('deleteuser',$User->id)}}">Delete</a></td>         
